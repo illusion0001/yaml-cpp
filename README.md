@@ -18,10 +18,11 @@ If you find a bug, post an [issue](https://github.com/jbeder/yaml-cpp/issues)! I
 
 #### 1. Navigate into the source directory, create build folder and run `CMake`:
 
-```sh
-mkdir build
+```
 cd build
-cmake [-G generator] [-DYAML_BUILD_SHARED_LIBS=on|OFF] ..
+cmake -DCMAKE_TOOLCHAIN_FILE=oosdk.cmake -G "Unix Makefiles" ../
+make
+make install DESTDIR=$OO_PS4_TOOLCHAIN
 ```
 
   * The `generator` option is the build system you'd like to use. Run `cmake` without arguments to see a full list of available generators.

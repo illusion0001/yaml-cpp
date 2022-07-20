@@ -1,5 +1,8 @@
 # 3.5 is actually available almost everywhere, but this a good minimum
 cmake_minimum_required(VERSION 3.4)
+# Linked libraries
+# Todo: shield these around PS4()
+link_libraries(-lc -lkernel -lc++)
 
 # enable MSVC_RUNTIME_LIBRARY target property
 # see https://cmake.org/cmake/help/latest/policy/CMP0091.html
@@ -160,6 +163,8 @@ write_basic_package_version_file(
 configure_file(yaml-cpp.pc.in yaml-cpp.pc @ONLY)
 
 if (YAML_CPP_INSTALL)
+  # ps4
+  set(CMAKE_INSTALL_PREFIX "")
   install(TARGETS yaml-cpp
     EXPORT yaml-cpp-targets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}

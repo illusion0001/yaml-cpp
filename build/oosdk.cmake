@@ -57,7 +57,7 @@ set(CMAKE_ASM_FLAGS "-Wall ${ARCH_FLAGS} -x assembler-with-cpp")
 # entry main to fix linking issues
 # ld.lld: warning: cannot find entry symbol _start; defaulting to 0x0
 set(CMAKE_EXE_LINKER_FLAGS "-m elf_x86_64 -pie --entry main --script ${OO_PS4_TOOLCHAIN}/link.x --eh-frame-hdr -L${OO_PS4_TOOLCHAIN}/lib")
-set(CMAKE_SHARED_LINKER_FLAGS "-m elf_x86_64 -shared --script ${OO_PS4_TOOLCHAIN}/link.x --eh-frame-hdr -L${OO_PS4_TOOLCHAIN}/lib")
+set(CMAKE_SHARED_LINKER_FLAGS "-m elf_x86_64 -shared --entry main --script ${OO_PS4_TOOLCHAIN}/link.x --eh-frame-hdr -L${OO_PS4_TOOLCHAIN}/lib")
 #set(CMAKE_STATIC_LINKER_FLAGS "-m elf_x86_64 -pie --entry main --script ${OO_PS4_TOOLCHAIN}/link.x --eh-frame-hdr -L${OO_PS4_TOOLCHAIN}/lib")
 set(CMAKE_MODULE_LINKER_FLAGS "-m elf_x86_64 -pie --entry main --script ${OO_PS4_TOOLCHAIN}/link.x --eh-frame-hdr -L${OO_PS4_TOOLCHAIN}/lib")
 set(CMAKE_CXX_LINK_EXECUTABLE "ld.lld <LINK_FLAGS> -o <TARGET> <OBJECTS> <LINK_LIBRARIES>")

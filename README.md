@@ -19,10 +19,20 @@ If you find a bug, post an [issue](https://github.com/jbeder/yaml-cpp/issues)! I
 #### 1. Navigate into the source directory, create build folder and run `CMake`:
 
 ```
+#### OpenOrbis Toolchain
 cd build
 cmake -DCMAKE_TOOLCHAIN_FILE=oosdk.cmake -G "Unix Makefiles" ../
 make
 make install DESTDIR=$OO_PS4_TOOLCHAIN
+####
+
+#### For OrbisDev Toolchain
+###  Thanks to LightningMods for Makefile
+make
+make install
+# Should go to $ORBISDEV/usr/include
+#              $$ORBISDEV/usr/lib
+# If not, you may need to manually copy them
 ```
 
   * The `generator` option is the build system you'd like to use. Run `cmake` without arguments to see a full list of available generators.
